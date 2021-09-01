@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+  <title>Books</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+    <main>
+        <nav class="nav">
+            <a class="nav-links" href="index.html">Home</a>
+            <a class="nav-links" href="info.html">Info</a>
+            <a class="nav-links" href="books.html">Books</a>
+        </nav>
+        <h1>Check out these books!</h1>
+        <a target='_blank' href='books.png'>
+        <img src='img/books.png' height='100px'></img></a><br>
+        <p>This a picture of books!</p>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Year Published</th>
+                <th scope="col">Publisher</th>
+                <th scope="col">Page Count</th>
+                <th scope="col">MSRP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Harry Potter and the Sorcerer's Stone</td>
+                <td>J.K. Rowling</td>
+                <td>1997</td>
+                <td>Bloomsbury</td>
+                <td>223</td>
+                <td>$8.99</td>
+              </tr>
+              <tr>
+                <td>The Hunger Games</td>
+                <td>Suzanne Collins</td>
+                <td>2008</td>
+                <td>Scholastic</td>
+                <td>374</td>
+                <td>$11.69</td>
+              </tr>
+              <tr>
+                <td>The Maze Runner</td>
+                <td>James Dashner</td>
+                <td>2009</td>
+                <td>Delacorte Press</td>
+                <td>375</td>
+                <td>$4.99</td>
+              </tr>
+              <tr>
+                <td>The Book Thief</td>
+                <td>Markus Zusak</td>
+                <td>2005</td>
+                <td>Picador</td>
+                <td>584</td>
+                <td>$6.99</td>
+              </tr>
+              <tr>
+                <td>Pride and Prejudice</td>
+                <td>Jane Austen</td>
+                <td>1813</td>
+                <td>T. Egerton, Whitehall</td>
+                <td>434</td>
+                <td>$10.99</td>
+              </tr>
+            </tbody>
+          </table>
+          <form action='books.html' method='post'>
+
+            Title<input type='text' name='title'><br>
+            Author<input type='text' name='author'><br>
+            Year Published<input type='text' name='year'><br>
+            Publisher<input type='text' name='publisher'><br>
+            # of Pages<input type='text' name='pages'><br>
+            MSRP<input type='text' name='price'><br>
+            
+            <input class='button' type='submit' name='submit' id='submit'>
+            
+          </form>
+    </main>
+</body>
+<footer>
+</footer>
+</html>
