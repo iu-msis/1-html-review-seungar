@@ -1,0 +1,25 @@
+main {
+    background-color: tan;
+    color: darkgrey;
+}
+
+header {
+    background-color: navy;
+}
+
+a {
+    color: navy;
+}
+
+.nav_links {
+    color: navy;
+    background-color: tan;
+    text-decoration: none;
+    border: 1px, solid, navy;
+    padding:5px;
+}
+
+#coolheader {
+    font-weight: bold;
+}
+
