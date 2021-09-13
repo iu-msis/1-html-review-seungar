@@ -16,7 +16,7 @@
         <a target='_blank' href='https://pngimg.com/uploads/book/book_PNG2105.png'>
         <img src='img/books.png' height='100px'></img></a><br>
         <p>This a picture of books!</p>
-        <table class="table" id='books'>
+        <table  id="booktable" class="table">
             <thead>
               <tr>
                 <th scope="col">Title</th>
@@ -83,11 +83,14 @@
             
           </form>
     </main>
+    <!-- table sort plugin from http://tristen.ca/tablesort/demo/ -->
     <script src='js/sort.js'></script>
     <script>
-      new Tablesort(document.getElementById('books'));
+      new Tablesort(document.getElementById("booktable"));
     </script>
 </body>
 <footer>
 </footer>
 </html>
+
+
