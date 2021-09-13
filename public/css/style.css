@@ -27,7 +27,7 @@ a {
 #coolheader {
     font-weight: bold;
 }
-
+/* tablesort via tristen */
 th[role=columnheader]:not(.no-sort) {
 	cursor: pointer;
 }
