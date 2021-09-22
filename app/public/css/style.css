@@ -2,6 +2,10 @@ main {
     background-color: tan;
 }
 
+.infoapp{
+	font-size: medium;
+}
+
 nav {
   background-color: lightblue;
   padding: 10px;

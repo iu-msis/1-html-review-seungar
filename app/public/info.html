@@ -13,17 +13,26 @@
     <a class="nav-links" href="books.html">Books</a>
   </nav>
   <main>
-    <h1>My Information!</h1>
+    <div class='d-flex justify-content-center mx-auto'><h1>My Information!</h1></div>
     <br>
-  <div id="infoApp">
-    <p><img v-bind:src='person.picture.large'></p>
-    <p>This is a picture of me!</p>
-  
-    <p>I'm {{ person.name.first }} {{ person.name.last }}</p>
-    <p>I'm from {{ person.location.country }}</p>
-    <p>I was born on {{ prettyBirthday }}</p>
-    <p>I am {{ person.dob.age }}</p>
-    <p>my email address is <a v-bind:href="'mailto:'+person.email">{{person.email}}</a></p>
+  <div id="infoApp" class="infoapp">
+    <div class='d-flex justify-content-center mx-auto'>
+    <p><img v-bind:src='person.picture.large'></p></div>
+    <div class='d-flex justify-content-center mx-auto'>
+      <p>This is a picture of me!</p></div>
+    <div class='d-flex justify-content-center mx-auto'>
+      <p>I'm {{ person.name.first }} {{ person.name.last }}</p></div>
+    <div class='d-flex justify-content-center mx-auto'>
+      <p>I'm from {{ person.location.country }}</p></div>
+    <div class='d-flex justify-content-center mx-auto'>
+      <p>I was born on {{ prettyBirthday }}</p></div>
+    <div class='d-flex justify-content-center mx-auto'>
+      <p>I am {{ person.dob.age }}</p></div>
+    <div class='d-flex justify-content-center mx-auto'>
+      <p>My email address is<a v-bind:href="'mailto:'+person.email">{{ person.email }}</a></p></div>
+    <div class='d-flex justify-content-center mx-auto'><form v-on:submit.prevent="fetchUserData">
+      <button type=submit>RELOAD FOR THE NEW ME!</button>
+    </form></div>
   </div>   
   </main>
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>

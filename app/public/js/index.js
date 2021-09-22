@@ -1,7 +1,12 @@
 const Info = {
     data(){
         return{
-            "person":{},
+            "person":{
+                name:{},
+                picture:{},
+                dob:{},
+                location:{},
+            },
         }
     },
     computed:{
