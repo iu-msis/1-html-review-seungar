@@ -7,6 +7,7 @@ const Info = {
                 dob:{},
                 location:{},
             },
+            
         }
     },
     computed:{
@@ -33,3 +34,48 @@ const Info = {
 }
 
 Vue.createApp(Info).mount('#infoApp')
+
+const SomeApp = {
+    data() {
+      return {
+        books: [],
+
+      }
+    },
+    computed: {},
+    methods: {
+        prettyData(d) {
+            return dayjs(d)
+            .format('D MMM YYYY')
+        },
+        prettyDollar(n) {
+            const d = new Intl.NumberFormat("en-US").format(n);
+            return "$ " + d;
+        },
+        selectStudent(s) {
+            if (s == this.selectedStudent) {
+                return;
+            }
+            this.selectedStudent = s;
+            this.offers = [];
+            this.fetchOfferData(this.selectedStudent);
+        },
+        fetchBookData() {
+            fetch('/api/books/')
+            .then( response => response.json() )
+            .then( (responseJson) => {
+                console.log(responseJson);
+                this.books = responseJson;
+            })
+            .catch( (err) => {
+                console.error(err);
+            })
+        }, 
+    },
+    created() {
+        this.fetchBookData();
+    }
+  
+  }
+  
+  Vue.createApp(SomeApp).mount('#bookApp');
