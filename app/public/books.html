@@ -37,24 +37,25 @@
                 <td>{{ book.author }}</td>
                 <td>{{ book.yearpub }}</td>
                 <td>{{ book.publisher}}</td>
-                <td>{{ book.pagecount }}</td>
+                <td>{{ book.page_count }}</td>
                 <td>{{ book.msrp }}</td>
               </tr>
             </tbody>
           </table>
-        </div>
-          <form action='books.html' method='post'>
+        
 
-            Title<input type='text' name='title'><br>
-            Author<input type='text' name='author'><br>
-            Year Published<input type='text' name='year'><br>
-            Publisher<input type='text' name='publisher'><br>
-            # of Pages<input type='text' name='pages'><br>
-            MSRP<input type='text' name='price'><br>
+          <form  v-on:submit.prevent="postNewBook">
+            Title<input type='text' v-model="bookForm.title" id='title'><br>
+            Author<input type='text' v-model="bookForm.author" id='author'><br>
+            Year Published<input type='number' v-model="bookForm.yearpub" id='yearpub'><br>
+            Publisher<input type='text' v-model="bookForm.publisher" id='publisher'><br>
+            # of Pages<input type='number' v-model="bookForm.page_count" id='page_count'><br>
+            MSRP!<input type='text' v-model="bookForm.msrp" id='msrp'><br>
             
-            <input class='button' type='submit' name='submit' id='submit'>
+            <button type="submit" class="btn btn-primary">Add Book</button>
             
           </form>
+        </div>
     </main>
     <!-- table sort plugin from http://tristen.ca/tablesort/demo/ -->
     <script src='js/sort.js'></script>
@@ -64,7 +65,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <script src="js/index.js"></script>
-    
+  </body>  
 <footer>
 </footer>
 </html>

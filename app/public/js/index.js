@@ -1,45 +1,46 @@
-const Info = {
-    data(){
-        return{
-            "person":{
-                name:{},
-                picture:{},
-                dob:{},
-                location:{},
-            },
+// const Info = {
+//     data(){
+//         return{
+//             "person":{
+//                 name:{},
+//                 picture:{},
+//                 dob:{},
+//                 location:{},
+//             },
             
-        }
-    },
-    computed:{
-        prettyBirthday(){
-            return dayjs(this.person.dob.date).format('DD/MM/YYYY');
-        }
-    },
-    methods:{
-        fetchUserData(){
-            fetch('https://randomuser.me/api/')
-            .then( response => response.json())
-            .then((parsedJSON) =>{
-                console.log(parsedJSON);
-                this.person = parsedJSON.results[0]
-            })
-            .catch(  err => {
-                console.error(err)
-            })
-        }
-    },
-    created(){
-        this.fetchUserData();
-    }
-}
+//         }
+//     },
+//     computed:{
+//         prettyBirthday(){
+//             return dayjs(this.person.dob.date).format('DD/MM/YYYY');
+//         }
+//     },
+//     methods:{
+//         fetchUserData(){
+//             fetch('https://randomuser.me/api/')
+//             .then( response => response.json())
+//             .then((parsedJSON) =>{
+//                 console.log(parsedJSON);
+//                 this.person = parsedJSON.results[0]
+//             })
+//             .catch(  err => {
+//                 console.error(err)
+//             })
+//         }
+//     },
+//     created(){
+//         this.fetchUserData();
+//     }
+// }
 
-Vue.createApp(Info).mount('#infoApp')
+// Vue.createApp(Info).mount('#infoApp')
 
 const SomeApp = {
     data() {
       return {
         books: [],
-
+        bookForm: {},
+        selectedBook: null
       }
     },
     computed: {},
@@ -70,10 +71,37 @@ const SomeApp = {
             .catch( (err) => {
                 console.error(err);
             })
+        },
+        postNewBook(evt) {
+            //this.bookForm.bookId = this.selectedBook.id;        
+            console.log("Posting:", this.bookForm);
+            // alert("Posting!");
+    
+            fetch('api/books/create.php', {
+                method:'POST',
+                body: JSON.stringify(this.bookForm),
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8"
+                }
+              })
+            .then( response => response.json() )
+            .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.books = json;
+                
+                // reset the form
+                //this.handleResetBook();
+              });
         }, 
+        handleResetBook(){
+            this.selectedBook = null;
+            this.bookForm = {};
+        }   
     },
     created() {
         this.fetchBookData();
+        
     }
   
   }
