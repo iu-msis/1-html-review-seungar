@@ -29,6 +29,7 @@
                 <th>Publisher</th>
                 <th>Page Count</th>
                 <th>MSRP</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -39,19 +40,33 @@
                 <td>{{ book.publisher}}</td>
                 <td>{{ book.page_count }}</td>
                 <td>{{ book.msrp }}</td>
+                <td>
+                <button type="button" v-on:click="postDeleteBook(book)" class="btn btn-outline-secondary btn-sm">Delete</button>
+                </td>
               </tr>
             </tbody>
           </table>
         
 
           <form  v-on:submit.prevent="postNewBook">
-            Title<input type='text' v-model="bookForm.title" id='title'><br>
-            Author<input type='text' v-model="bookForm.author" id='author'><br>
-            Year Published<input type='number' v-model="bookForm.yearpub" id='yearpub'><br>
-            Publisher<input type='text' v-model="bookForm.publisher" id='publisher'><br>
-            # of Pages<input type='number' v-model="bookForm.page_count" id='page_count'><br>
-            MSRP!<input type='text' v-model="bookForm.msrp" id='msrp'><br>
-            
+            <div class="mb-3">
+              Title<input type='text' v-model="bookForm.title" class="form-control" id='title'>
+            </div>
+            <div class="mb-3">
+              Author<input type='text' v-model="bookForm.author" class="form-control" id='author'>
+            </div>
+            <div class="mb-3">
+            Year Published<input type='number' v-model="bookForm.yearpub" class="form-control" id='yearpub'>
+            </div>
+            <div class="mb-3">
+              Publisher<input type='text' v-model="bookForm.publisher" class="form-control" id='publisher'>
+            </div>  
+            <div class="mb-3">
+              # of Pages<input type='number' v-model="bookForm.page_count" class="form-control" id='page_count'>
+            </div>
+            <div class="mb-3">
+              MSRP!<input type='text' v-model="bookForm.msrp" class="form-control" id='msrp'>
+            </div>  
             <button type="submit" class="btn btn-primary">Add Book</button>
             
           </form>

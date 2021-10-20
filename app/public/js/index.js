@@ -93,6 +93,31 @@ const SomeApp = {
                 // reset the form
                 this.bookForm = {};
               });
+        },
+        postDeleteBook(o) {   
+            if ( !confirm("Are you sure you want to the book titled: " + o.title + " ?") ) {
+                return;
+            
+            }
+            
+            console.log("DELETE:", o);
+            
+            fetch('api/books/delete.php', {
+                method:'POST',
+                body: JSON.stringify(o),
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8"
+                }
+              })
+              .then( response => response.json() )
+              .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.books = json;
+                
+                // reset the form
+                this.handleResetBook();
+              });
         }, 
         handleResetBook(){
             this.selectedBook = null;
