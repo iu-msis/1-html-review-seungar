@@ -91,7 +91,7 @@ const SomeApp = {
                 this.books = json;
                 
                 // reset the form
-                //this.handleResetBook();
+                this.bookForm = {};
               });
         }, 
         handleResetBook(){
