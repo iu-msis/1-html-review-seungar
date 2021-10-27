@@ -72,6 +72,13 @@ const SomeApp = {
                 console.error(err);
             })
         },
+        postBook(evt){
+          if (this.selectedBook) {
+              this.postEditBook(evt);
+          } else {
+              this.postNewBook(evt);
+          }
+        },  
         postNewBook(evt) {
             //this.bookForm.bookId = this.selectedBook.id;        
             console.log("Posting:", this.bookForm);
@@ -93,6 +100,28 @@ const SomeApp = {
                 // reset the form
                 this.bookForm = {};
               });
+        },
+        postEditBook(evt) {
+          this.bookForm.id = this.selectedBook.id;        
+          console.log("Editing:", this.bookForm);
+          // alert("Posting!");
+  
+          fetch('api/books/update.php', {
+              method:'POST',
+              body: JSON.stringify(this.bookForm),
+              headers: {
+                "Content-Type": "application/json; charset=utf-8"
+              }
+            })
+          .then( response => response.json() )
+          .then( json => {
+              console.log("Returned from post:", json);
+              // TODO: test a result was returned!
+              this.books = json;
+              
+              // reset the form
+              this.handleResetBook();
+            });
         },
         postDeleteBook(o) {   
             if ( !confirm("Are you sure you want to the book titled: " + o.title + " ?") ) {
@@ -118,7 +147,11 @@ const SomeApp = {
                 // reset the form
                 this.handleResetBook();
               });
-        }, 
+          }, 
+        handleEditBook(book){
+            this.selectedBook = book;
+            this.bookForm = Object.assign({},this.selectedBook);
+        },  
         handleResetBook(){
             this.selectedBook = null;
             this.bookForm = {};
