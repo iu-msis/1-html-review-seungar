@@ -65,3 +65,9 @@ th[role=columnheader]:not(.no-sort):hover:after {
 	visibility: visible;
 	opacity: 1;
 }
+
+input:invalid,
+input:required:invalid {
+	border: 1px dotted red;
+	background-color:palegoldenrod;
+}
